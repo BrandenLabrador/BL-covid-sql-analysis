@@ -14,5 +14,6 @@ This repository is organized as a reproducible SQL workflow: initial data qualit
 - covidvaccinations
 
 **How to Run**
+
 Run the SQL scripts in order from the /sql folder.
 (You can run each file manually in MySQL Workbench, or copy/paste sections as you work.)

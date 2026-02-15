@@ -29,33 +29,32 @@ LIMIT 25;
 
 -- 3) Global CFR over time (daily)
 SELECT
-  'date',
+  date,
   SUM(new_cases) AS global_new_cases,
   SUM(new_deaths) AS global_new_deaths,
   ROUND(SUM(new_deaths) / NULLIF(SUM(new_cases), 0) * 100, 2) AS global_daily_cfr_pct
 FROM coviddeaths
 WHERE continent IS NOT NULL
-GROUP BY 'date'
-ORDER BY 'date';
+GROUP BY date
+ORDER BY date;
 
 -- 4) 7-day moving average (global new cases/deaths)
 -- Window functions required (MySQL 8+)
 WITH daily AS (
   SELECT
-    'date',
+    date,
     SUM(new_cases) AS global_new_cases,
     SUM(new_deaths) AS global_new_deaths
   FROM coviddeaths
   WHERE continent IS NOT NULL
-  GROUP BY 'date'
+  GROUP BY date
 )
 SELECT
-  'date',
+  date,
   global_new_cases,
   global_new_deaths,
-  ROUND(AVG(global_new_cases) OVER (ORDER BY 'date' ROWS BETWEEN 6 PRECEDING AND CURRENT ROW), 2) AS ma7_new_cases,
-  ROUND(AVG(global_new_deaths) OVER (ORDER BY 'date' ROWS BETWEEN 6 PRECEDING AND CURRENT ROW), 2) AS ma7_new_deaths
+  ROUND(AVG(global_new_cases) OVER (ORDER BY date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW), 2) AS ma7_new_cases,
+  ROUND(AVG(global_new_deaths) OVER (ORDER BY date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW), 2) AS ma7_new_deaths
 FROM daily
-ORDER BY 'date';
-
+ORDER BY date;
 

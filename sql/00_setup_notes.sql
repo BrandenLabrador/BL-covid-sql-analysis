@@ -2,8 +2,8 @@
 -- Notes on the setup and data normalization steps performed before analysis
 
 -- 1) Confirm date ranges
-SELECT MIN('date') AS min_date, MAX('date') AS max_date FROM coviddeaths;
-SELECT MIN('date') AS min_date, MAX('date') AS max_date FROM covidvaccinations;
+SELECT MIN(date) AS min_date, MAX(date) AS max_date FROM coviddeaths;
+SELECT MIN(date) AS min_date, MAX(date) AS max_date FROM covidvaccinations;
 
 -- 2) Date normalization example (if date was stored as M/D/YY text originally)
 -- UPDATE coviddeaths

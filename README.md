@@ -4,16 +4,19 @@ This project analyzes global COVID-19 data using MySQL to explore trends in case
 
 This repository is organized as a reproducible SQL workflow: initial data quality checks, exploratory queries, KPI calculations, time-series trends, country rankings, vaccination progress analysis, and reusable views. The focus is on core data analyst skills including data preparation, aggregation, ranking, joins, and time-based analysis.
 
-**Tools**
+
+**Tools:**
 - MySQL (Workbench)
 - SQL
 - Data
+
 
 **Tables used:**
 - coviddeaths
 - covidvaccinations
 
-**How to Run**
+
+**How to Run:**
 
 Run the SQL scripts in order from the /sql folder.
 (You can run each file manually in MySQL Workbench, or copy/paste sections as you work.)

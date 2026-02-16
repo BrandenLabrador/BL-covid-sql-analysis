@@ -3,7 +3,7 @@
 
 -- Monthly global totals
 SELECT
-  DATE_FORMAT(date, '%Y-%m') AS 'year_month',
+  DATE_FORMAT(date, '%Y-%m') AS "year_month",
   SUM(new_cases) AS cases_in_month,
   SUM(new_deaths) AS deaths_in_month
 FROM coviddeaths
@@ -13,7 +13,7 @@ ORDER BY year_month;
 
 -- Find peak month for deaths
 SELECT
-  DATE_FORMAT(date, '%Y-%m') AS 'year_month',
+  DATE_FORMAT(date, '%Y-%m') AS "year_month",
   SUM(new_deaths) AS deaths_in_month
 FROM coviddeaths
 WHERE continent IS NOT NULL
